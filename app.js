@@ -8,10 +8,12 @@ document.getElementById("timeout").addEventListener("click", function () {
 });
 let x = 0;
 
-document.getElementById("interval-start").addEventListener("click", () => interval);
-document.getElementById("interval-stop").addEventListener("click", () => clearInterval(interval));
+document.getElementById("interval-start").addEventListener("click", time);
 
-let interval = setInterval(function () {
-    document.getElementById("interval-div").innerHTML = x;
-    x+=60;
-}, 2000);
+function time() {
+    let interval = setInterval(function () {
+        document.getElementById("interval-div").innerHTML = x;
+        x+=60;
+    }, 2000);
+    document.getElementById("interval-stop").addEventListener("click", () => clearInterval(interval));
+}
